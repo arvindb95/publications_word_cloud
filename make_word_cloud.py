@@ -5,9 +5,14 @@ import matplotlib.pyplot as plt
 from PIL import Image
 import numpy as np
 
-# Convert your papers to text using the attached shell script (requires pdftotext to be installed)
+# Save all pdf papers in a directory named papers
+# The pdf's will be converted to a single text file by the accompanying shell
+# script
 
-paper_text_unclean = open("papers.txt","r").read()
+paper_text_unclean = open("all_papers.txt","r").read()
+
+# Use NLTK packge to remove nouns, pronouns and other trivial words from the
+# text
 
 tagged_text = nltk.tag.pos_tag(paper_text_unclean.split())
 
@@ -18,8 +23,12 @@ final_text = ""
 for word in final_words:
     final_text = final_text + word + " "
 
+# Use the attached circular stencil or a stensil of your choice
+
 circle_mask = np.array(Image.open("circle_stencil.png"))
 
+# Add more stopwords for the wordcloud package to remove
+#
 stopwords = set(STOPWORDS)
 stopwords.update({"2004dk","Table","Section"})
 
