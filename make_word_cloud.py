@@ -1,7 +1,5 @@
-import re
 import nltk
 from wordcloud import WordCloud, STOPWORDS
-import matplotlib.pyplot as plt
 from PIL import Image
 import numpy as np
 
@@ -31,6 +29,8 @@ circle_mask = np.array(Image.open("circle_stencil.png"))
 #
 stopwords = set(STOPWORDS)
 stopwords.update({"2004dk","Table","Section"})
+
+# Feel free to change the background color and the colormap
 
 wc = WordCloud(min_word_length=4,stopwords=stopwords,mask=circle_mask,background_color="#28353C",colormap="Wistia",scale=20,repeat=False).generate(final_text)    
 
