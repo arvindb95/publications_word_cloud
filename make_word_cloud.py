@@ -9,7 +9,7 @@ import numpy as np
 # The pdf's will be converted to a single text file by the accompanying shell
 # script
 
-paper_text_unclean = open("all_papers.txt","r").read()
+paper_text_unclean = open("papers/all_papers.text","r").read()
 
 # Use NLTK packge to remove nouns, pronouns and other trivial words from the
 # text
